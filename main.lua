@@ -25,12 +25,13 @@ function allocate.compute(deposits, reward, prices, yields)
         assert(deposit.Amount ~= nil, 'deposit must have an amount')
         local price = prices[deposit.Token]
         local yield = yields[deposit.Token]
-        deposit.score = tostring(calcValue(deposit.Amount, price, yield))
+        print(deposit.User .. ':' .. price .. ':' .. yield)
+        deposit.Score = tostring(calcValue(deposit.Amount, price, yield))
         return deposit
     end,
     deposits
   )
-  local totalScores = helpers.sum('score', scores)
+  local totalScores = helpers.sum('Score', scores)
   return Utils.map(distribute(reward, totalScores), scores)
 end
 

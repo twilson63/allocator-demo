@@ -10,8 +10,8 @@ local function distribute(reward, scoreTotal, scoreProp, rewardProp)
   assert(bint(reward), "reward must be able to be parsed as a bint")
   assert(bint(scoreTotal), "score Total must be able to parsed by a bint")
   -- set defaults
-  if not scoreProp then scoreProp = 'score' end
-  if not rewardProp then rewardProp = 'reward' end
+  if not scoreProp then scoreProp = 'Score' end
+  if not rewardProp then rewardProp = 'Reward' end
 
   -- we calculate the score reward unit by dividing the scoreTotal by the reward 
   local scoreRewardUnit = bint(scoreTotal) // (bint(reward))
@@ -20,7 +20,7 @@ local function distribute(reward, scoreTotal, scoreProp, rewardProp)
   -- @param acct - table containing a score property
   return function (acct)
     assert(type(acct) == "table", 'acct must be a table')
-    assert(type(acct[scoreProp]) == "string", 'score property is required')
+    assert(type(acct[scoreProp]) == "string", 'Score property is required')
     -- to determine the reward we divide using integer division the score by the reward units
     acct[rewardProp] = tostring(bint(acct[scoreProp]) // scoreRewardUnit)
     return acct
