@@ -24,7 +24,7 @@ function allocate.compute(deposits, reward, prices, yields)
         assert(deposit.Token ~= nil, 'deposit must have a token symbol')
         assert(deposit.Amount ~= nil, 'deposit must have an amount')
         local price = prices[deposit.Token]
-        local yield = yields[deposit.Yield]
+        local yield = yields[deposit.Token]
         deposit.score = tostring(calcValue(deposit.Amount, price, yield))
         return deposit
     end,
