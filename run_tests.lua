@@ -20,6 +20,15 @@ function excludeZero (d)
   return bint(d.Amount) > 0
 end
 
+t:add("test allocation compute", function () 
+  local reward = "21180781930430"
+  -- loaded from global...
+  local balances = allocator.compute(deposits, reward, prices, yields)
+  print(helpers.take(1, Utils.filter(excludeZero, balances)))
+  print("Total Rewarded: " .. helpers.sum("Reward", balances))
+  print("Reward: " .. reward)
+end)
+
 t:add("test allocation compute2", function () 
   local reward = "21180781930430"
   -- loaded from global...

@@ -2,10 +2,10 @@ local bint = require('.bint')(256)
 
 local deposits = {
   {
-      User = "0x53b517968dbD242De0348A2f0d70D55C1BF7BcD3",
-      Amount = tostring(bint(82114) * bint.ipow(10, 18)),
+      User = "0x53b517968dbD242De0348A2f0d70D55C1BF7BcD4",
+      Amount = "1000000000",
       Token = "stETH",
-      Recipient = "FWlLi87gg_ZU5guWirjLCp-7TyzcK8CgVdOCng5Rgzk"
+      Recipient = "FWlLi87gg_ZU5guWirjLCp-7TyzcK8CgVdOCng5Rgzx"
   },
   {
       User = "0x53b517968dbD242De0348A2f0d70D55C1BF7BcD3",
